@@ -1,0 +1,16 @@
+enum ButtonType {
+  number,
+  multiplication,
+  division,
+  subtraction,
+  addition,
+  percentage,
+  squareRoort,
+  bracketOpen,
+  bracketClose,
+  backspace,
+  decimal,
+  factorial,
+  power,
+  equals,
+}
