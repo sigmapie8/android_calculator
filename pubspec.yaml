@@ -9,7 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  infix_expression_parser: ^1.0.2
+  provider: ^6.1.1
 
 dev_dependencies:
   flutter_test:
