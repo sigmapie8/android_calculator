@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:android_calculator/controller/calculatorController.dart';
+import 'package:android_calculator/utility/colors.dart';
 import 'package:flutter/material.dart';
 
 class EquationArea extends StatefulWidget {
@@ -64,7 +65,7 @@ class _EquationAreaState extends State<EquationArea> {
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 200),
           decoration: const BoxDecoration(
-            color: Color(0xFF27343C),
+            color: ColorPalette.section1Color, //Color(0xFF27343C),
             borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(15.0),
                 bottomRight: Radius.circular(15.0)),
@@ -76,25 +77,44 @@ class _EquationAreaState extends State<EquationArea> {
             builder: (context, child) {
               return Stack(
                 children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      // expression area
-                      SizedBox(
-                        child: Text(
-                          widget.calculatorController.expression,
-                          style: const TextStyle(
-                              color: Colors.white, fontSize: 56),
+                  Container(
+                    color: ColorPalette.section3Color,
+                    padding: const EdgeInsets.only(bottom: 20),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        // expression area
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              child: Text(
+                                widget.calculatorController.expression,
+                                style: const TextStyle(
+                                    color: Colors.white, fontSize: 56),
+                              ),
+                            ),
+                          ],
                         ),
-                      ),
-                      //result Area
-                      Text(
-                        widget.calculatorController.result == null
-                            ? ""
-                            : widget.calculatorController.result.toString(),
-                        style: const TextStyle(color: Colors.white),
-                      ),
-                    ],
+                        const SizedBox(height: 20),
+                        /// result Area
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              widget.calculatorController.result == null
+                                  ? ""
+                                  : widget.calculatorController.result.toString(),
+                              style: const TextStyle(color: Colors.white, fontSize: 28),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
 
                   // dragIcon
