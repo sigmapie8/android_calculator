@@ -1,4 +1,4 @@
-import 'package:android_calculator/widgets/button_widget.dart';
+import 'package:android_calculator/widgets/custom_grid_widget.dart';
 import 'package:flutter/material.dart';
 
 class ButtonScreen extends StatefulWidget {
@@ -11,19 +11,12 @@ class ButtonScreen extends StatefulWidget {
 class _ButtonScreenState extends State<ButtonScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-          //  const ButtonWidget(number: "AC"),
-            Container(
-              //alignment: Alignment.bottomCenter,
-             // padding: const EdgeInsets.all(2),
-              // margin: const EdgeInsets.only(top: 50),
-              color: Colors.green,
-              child: const SizedBox(height: 400, child: MyGridView()),
-            ),
+            SizedBox(height: 400, child: MyGridView()),
           ],
         ),
       ),
@@ -38,21 +31,6 @@ class MyGridView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.count(
-      crossAxisCount: 4,
-      // Number of columns in the grid
-      // crossAxisSpacing: 4.0,
-      // Spacing between columns
-      // mainAxisSpacing: 4.0,
-      // Spacing between rows
-      // padding: const EdgeInsets.all(10.0),
-      // Padding around the grid
-      children: List.generate(
-        buttonNames.length,
-        (index) {
-          return NewButton(number: buttonNames[index]);
-        },
-      ),
-    );
+    return const CustomGridView(crossAxisCount: 4, numbers: buttonNames);
   }
 }
