@@ -27,7 +27,7 @@ class _ButtonScreenState extends State<ButtonScreen> {
 class MyGridView extends StatelessWidget {
   const MyGridView({super.key});
 
-  static const List<String> buttonNames = ["AC", "( )", "%", "/", "7", "8", "9", "*", "4", "5", "6", "-", "1", "2", "3", "+", "0", ".", "x", "="];
+  static const List<String> buttonNames = ["AC", "( ", "( ", "/", "7", "8", "9", "*", "4", "5", "6", "-", "1", "2", "3", "+", "0", ".", "x", "="];
 
   @override
   Widget build(BuildContext context) {

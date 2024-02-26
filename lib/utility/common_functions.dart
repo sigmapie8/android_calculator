@@ -10,4 +10,24 @@ class CommonFunctions {
     }
     return resultList;
   }
+
+  String getRelativeTime({required DateTime dateTime}) {
+    DateTime now = DateTime.now();
+    Duration difference = now.difference(dateTime);
+
+    if (difference.inDays == 0) {
+      return 'Today';
+    } else if (difference.inDays == 1) {
+      return 'Yesterday';
+    } else if (difference.inDays <= 7) {
+      return '${difference.inDays} Days Ago';
+    } else {
+      int weeks = (difference.inDays / 7).floor();
+      if (weeks == 1) {
+        return '1st Week';
+      } else {
+        return '$weeks Weeks Ago';
+      }
+    }
+  }
 }

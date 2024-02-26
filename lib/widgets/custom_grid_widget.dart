@@ -74,7 +74,7 @@ class NumberWidget extends StatelessWidget {
 
   final String number;
   final double width;
-  final bool minimize = false;
+  final bool minimize = true;
   final double size = 80;
 
   @override
