@@ -139,6 +139,8 @@ class Infix {
       case '/':
         if (b == 0) throw Exception("Cannot divide by zero");
         return a / b;
+      //TODO: Add case for square root
+      //TODO: Add case for factorial
     }
     return 0;
   }

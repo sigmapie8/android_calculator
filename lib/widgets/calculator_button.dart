@@ -3,30 +3,35 @@ import 'package:flutter/material.dart';
 class CalculatorButton extends StatelessWidget {
   const CalculatorButton(
       {Key? key,
-      required this.backgroundColor,
+      this.backgroundColor = const Color(0xFF1D2528),
       required this.text,
       this.onTap,
       this.isCompressed = false,
-      required this.textColor})
+      this.textColor = Colors.white,
+      required this.radius})
       : super(key: key);
 
   final Color backgroundColor;
   final Color textColor;
-  final String text;
+  final Widget text;
   final VoidCallback? onTap;
   final bool isCompressed;
+  final double radius;
 
   @override
   Widget build(BuildContext context) {
-    return OutlinedButton(
-        style: OutlinedButton.styleFrom(
+    return TextButton(
+        style: TextButton.styleFrom(
             backgroundColor: backgroundColor,
+            padding: EdgeInsets.zero,
+            elevation: 0.0,
             shape: isCompressed ? const StadiumBorder() : const CircleBorder()),
         onPressed: onTap,
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
+        child: SizedBox(
+          height: !isCompressed ? radius : radius - 30,
+          width: !isCompressed ? radius : radius + 10,
           child: Center(
-            child: Text(text),
+            child: text,
           ),
         ));
   }
